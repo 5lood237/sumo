@@ -25,6 +25,7 @@
 #include <utils/shapes/PointOfInterest.h>
 #include <utils/options/OptionsCont.h>
 #include <utils/vehicle/SUMOVehicleParserHelper.h>
+#include <utils/xml/SUMOXMLDefinitions.h>
 
 #include "AdditionalHandler.h"
 
@@ -355,6 +356,8 @@ AdditionalHandler::parseSumoBaseObject(CommonXMLStructure::SumoBaseObject* obj) 
                             obj->getPeriodAttribute(),
                             obj->getStringAttribute(SUMO_ATTR_FILE),
                             obj->getStringListAttribute(SUMO_ATTR_VTYPES),
+                            obj->getStringListAttribute(SUMO_ATTR_NEXT_EDGES),
+                            obj->getStringAttribute(SUMO_ATTR_DETECT_PERSONS),
                             obj->getStringAttribute(SUMO_ATTR_NAME),
                             obj->getBoolAttribute(SUMO_ATTR_FRIENDLY_POS),
                             obj->getParameters());
@@ -371,11 +374,14 @@ AdditionalHandler::parseSumoBaseObject(CommonXMLStructure::SumoBaseObject* obj) 
                                           obj->getStringAttribute(SUMO_ATTR_TLID),
                                           obj->getStringAttribute(SUMO_ATTR_FILE),
                                           obj->getStringListAttribute(SUMO_ATTR_VTYPES),
+                                          obj->getStringListAttribute(SUMO_ATTR_NEXT_EDGES),
+                                          obj->getStringAttribute(SUMO_ATTR_DETECT_PERSONS),
                                           obj->getStringAttribute(SUMO_ATTR_NAME),
                                           obj->getTimeAttribute(SUMO_ATTR_HALTING_TIME_THRESHOLD),
                                           obj->getDoubleAttribute(SUMO_ATTR_HALTING_SPEED_THRESHOLD),
                                           obj->getDoubleAttribute(SUMO_ATTR_JAM_DIST_THRESHOLD),
                                           obj->getBoolAttribute(SUMO_ATTR_FRIENDLY_POS),
+                                          obj->getBoolAttribute(SUMO_ATTR_SHOW_DETECTOR),
                                           obj->getParameters());
             } else {
                 buildMultiLaneDetectorE2(obj,
@@ -387,11 +393,14 @@ AdditionalHandler::parseSumoBaseObject(CommonXMLStructure::SumoBaseObject* obj) 
                                          obj->getStringAttribute(SUMO_ATTR_TLID),
                                          obj->getStringAttribute(SUMO_ATTR_FILE),
                                          obj->getStringListAttribute(SUMO_ATTR_VTYPES),
+                                         obj->getStringListAttribute(SUMO_ATTR_NEXT_EDGES),
+                                         obj->getStringAttribute(SUMO_ATTR_DETECT_PERSONS),
                                          obj->getStringAttribute(SUMO_ATTR_NAME),
                                          obj->getTimeAttribute(SUMO_ATTR_HALTING_TIME_THRESHOLD),
                                          obj->getDoubleAttribute(SUMO_ATTR_HALTING_SPEED_THRESHOLD),
                                          obj->getDoubleAttribute(SUMO_ATTR_JAM_DIST_THRESHOLD),
                                          obj->getBoolAttribute(SUMO_ATTR_FRIENDLY_POS),
+                                         obj->getBoolAttribute(SUMO_ATTR_SHOW_DETECTOR),
                                          obj->getParameters());
             }
             break;
@@ -403,9 +412,12 @@ AdditionalHandler::parseSumoBaseObject(CommonXMLStructure::SumoBaseObject* obj) 
                             obj->getPeriodAttribute(),
                             obj->getStringAttribute(SUMO_ATTR_FILE),
                             obj->getStringListAttribute(SUMO_ATTR_VTYPES),
+                            obj->getStringListAttribute(SUMO_ATTR_NEXT_EDGES),
+                            obj->getStringAttribute(SUMO_ATTR_DETECT_PERSONS),
                             obj->getStringAttribute(SUMO_ATTR_NAME),
                             obj->getTimeAttribute(SUMO_ATTR_HALTING_TIME_THRESHOLD),
                             obj->getDoubleAttribute(SUMO_ATTR_HALTING_SPEED_THRESHOLD),
+                            obj->getBoolAttribute(SUMO_ATTR_OPEN_ENTRY),
                             obj->getBoolAttribute(SUMO_ATTR_EXPECT_ARRIVAL),
                             obj->getParameters());
             break;
@@ -430,6 +442,8 @@ AdditionalHandler::parseSumoBaseObject(CommonXMLStructure::SumoBaseObject* obj) 
                                    obj->getDoubleAttribute(SUMO_ATTR_POSITION),
                                    obj->getStringAttribute(SUMO_ATTR_FILE),
                                    obj->getStringListAttribute(SUMO_ATTR_VTYPES),
+                                   obj->getStringListAttribute(SUMO_ATTR_NEXT_EDGES),
+                                   obj->getStringAttribute(SUMO_ATTR_DETECT_PERSONS),
                                    obj->getStringAttribute(SUMO_ATTR_NAME),
                                    obj->getBoolAttribute(SUMO_ATTR_FRIENDLY_POS),
                                    obj->getParameters());
@@ -989,9 +1003,11 @@ AdditionalHandler::parseE1Attributes(const SUMOSAXAttributes& attrs) {
     // optional attributes
     const std::string name = attrs.getOpt<std::string>(SUMO_ATTR_NAME, id.c_str(), parsedOk, "");
     const std::vector<std::string> vehicleTypes = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_VTYPES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::vector<std::string> nextEdges = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_NEXT_EDGES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::string detectPersons = attrs.getOpt<std::string>(SUMO_ATTR_DETECT_PERSONS, "", parsedOk);
     const bool friendlyPos = attrs.getOpt<bool>(SUMO_ATTR_FRIENDLY_POS, id.c_str(), parsedOk, false);
     // continue if flag is ok
-    if (parsedOk) {
+    if (parsedOk && checkDetectPersons(SUMO_TAG_E1DETECTOR, id, detectPersons)) {
         // set tag
         myCommonXMLStructure.getCurrentSumoBaseObject()->setTag(SUMO_TAG_E1DETECTOR);
         // add all attributes
@@ -1002,6 +1018,8 @@ AdditionalHandler::parseE1Attributes(const SUMOSAXAttributes& attrs) {
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_FILE, file);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_NAME, name);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_VTYPES, vehicleTypes);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_NEXT_EDGES, nextEdges);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_DETECT_PERSONS, detectPersons);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_FRIENDLY_POS, friendlyPos);
     }
 }
@@ -1037,9 +1055,12 @@ AdditionalHandler::parseE2Attributes(const SUMOSAXAttributes& attrs) {
         const double haltingSpeedThreshold = attrs.getOpt<double>(SUMO_ATTR_HALTING_SPEED_THRESHOLD, id.c_str(), parsedOk, 1.39);
         const double jamDistThreshold = attrs.getOpt<double>(SUMO_ATTR_JAM_DIST_THRESHOLD, id.c_str(), parsedOk, 10);
         const std::vector<std::string> vehicleTypes = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_VTYPES, id.c_str(), parsedOk, std::vector<std::string>());
+        const std::vector<std::string> nextEdges = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_NEXT_EDGES, id.c_str(), parsedOk, std::vector<std::string>());
+        const std::string detectPersons = attrs.getOpt<std::string>(SUMO_ATTR_DETECT_PERSONS, "", parsedOk);
         const bool friendlyPos = attrs.getOpt<bool>(SUMO_ATTR_FRIENDLY_POS, id.c_str(), parsedOk, false);
+        const bool show = attrs.getOpt<bool>(SUMO_ATTR_SHOW_DETECTOR, id.c_str(), parsedOk, true);
         // continue if flag is ok
-        if (parsedOk) {
+        if (parsedOk && checkDetectPersons(SUMO_TAG_E2DETECTOR, id, detectPersons)) {
             // set tag
             myCommonXMLStructure.getCurrentSumoBaseObject()->setTag(SUMO_TAG_E2DETECTOR);
             // add attributes depending of Lane/Lanes
@@ -1066,11 +1087,14 @@ AdditionalHandler::parseE2Attributes(const SUMOSAXAttributes& attrs) {
             myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_TLID, trafficLight);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_FILE, file);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_VTYPES, vehicleTypes);
+            myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_NEXT_EDGES, nextEdges);
+            myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_DETECT_PERSONS, detectPersons);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_NAME, name);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addTimeAttribute(SUMO_ATTR_HALTING_TIME_THRESHOLD, haltingTimeThreshold);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addDoubleAttribute(SUMO_ATTR_HALTING_SPEED_THRESHOLD, haltingSpeedThreshold);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addDoubleAttribute(SUMO_ATTR_JAM_DIST_THRESHOLD, jamDistThreshold);
             myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_FRIENDLY_POS, friendlyPos);
+            myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_SHOW_DETECTOR, show);
         }
     }
 }
@@ -1087,12 +1111,15 @@ AdditionalHandler::parseE3Attributes(const SUMOSAXAttributes& attrs) {
     // optional attributes
     const Position pos = attrs.getOpt<Position>(SUMO_ATTR_POSITION, id.c_str(), parsedOk, Position());
     const std::vector<std::string> vehicleTypes = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_VTYPES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::vector<std::string> nextEdges = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_NEXT_EDGES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::string detectPersons = attrs.getOpt<std::string>(SUMO_ATTR_DETECT_PERSONS, "", parsedOk);
     const std::string name = attrs.getOpt<std::string>(SUMO_ATTR_NAME, id.c_str(), parsedOk, "");
     const SUMOTime haltingTimeThreshold = attrs.getOptSUMOTimeReporting(SUMO_ATTR_HALTING_TIME_THRESHOLD, id.c_str(), parsedOk, TIME2STEPS(1));
     const double haltingSpeedThreshold = attrs.getOpt<double>(SUMO_ATTR_HALTING_SPEED_THRESHOLD, id.c_str(), parsedOk, 1.39);
+    const bool openEntry = attrs.getOpt<bool>(SUMO_ATTR_OPEN_ENTRY, id.c_str(), parsedOk, false);
     const bool expectedArrival = attrs.getOpt<bool>(SUMO_ATTR_EXPECT_ARRIVAL, id.c_str(), parsedOk, false);
     // continue if flag is ok
-    if (parsedOk) {
+    if (parsedOk && checkDetectPersons(SUMO_TAG_E3DETECTOR, id, detectPersons)) {
         // set tag
         myCommonXMLStructure.getCurrentSumoBaseObject()->setTag(SUMO_TAG_E3DETECTOR);
         // add all attributes
@@ -1101,9 +1128,12 @@ AdditionalHandler::parseE3Attributes(const SUMOSAXAttributes& attrs) {
         myCommonXMLStructure.getCurrentSumoBaseObject()->addTimeAttribute(SUMO_ATTR_PERIOD, period);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addPositionAttribute(SUMO_ATTR_POSITION, pos);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_VTYPES, vehicleTypes);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_NEXT_EDGES, nextEdges);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_DETECT_PERSONS, detectPersons);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_NAME, name);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addTimeAttribute(SUMO_ATTR_HALTING_TIME_THRESHOLD, haltingTimeThreshold);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addDoubleAttribute(SUMO_ATTR_HALTING_SPEED_THRESHOLD, haltingSpeedThreshold);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_OPEN_ENTRY, openEntry);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_EXPECT_ARRIVAL, expectedArrival);
     }
 }
@@ -1167,9 +1197,11 @@ AdditionalHandler::parseE1InstantAttributes(const SUMOSAXAttributes& attrs) {
     // optional attributes
     const std::string name = attrs.getOpt<std::string>(SUMO_ATTR_NAME, id.c_str(), parsedOk, "");
     const std::vector<std::string> vehicleTypes = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_VTYPES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::vector<std::string> nextEdges = attrs.getOpt<std::vector<std::string> >(SUMO_ATTR_NEXT_EDGES, id.c_str(), parsedOk, std::vector<std::string>());
+    const std::string detectPersons = attrs.getOpt<std::string>(SUMO_ATTR_DETECT_PERSONS, "", parsedOk);
     const bool friendlyPos = attrs.getOpt<bool>(SUMO_ATTR_FRIENDLY_POS, id.c_str(), parsedOk, false);
     // continue if flag is ok
-    if (parsedOk) {
+    if (parsedOk && checkDetectPersons(SUMO_TAG_INSTANT_INDUCTION_LOOP, id, detectPersons)) {
         // set tag
         myCommonXMLStructure.getCurrentSumoBaseObject()->setTag(SUMO_TAG_INSTANT_INDUCTION_LOOP);
         // add all attributes
@@ -1178,6 +1210,8 @@ AdditionalHandler::parseE1InstantAttributes(const SUMOSAXAttributes& attrs) {
         myCommonXMLStructure.getCurrentSumoBaseObject()->addDoubleAttribute(SUMO_ATTR_POSITION, position);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_FILE, file);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_VTYPES, vehicleTypes);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringListAttribute(SUMO_ATTR_NEXT_EDGES, nextEdges);
+        myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_DETECT_PERSONS, detectPersons);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addStringAttribute(SUMO_ATTR_NAME, name);
         myCommonXMLStructure.getCurrentSumoBaseObject()->addBoolAttribute(SUMO_ATTR_FRIENDLY_POS, friendlyPos);
     }
@@ -1890,8 +1924,19 @@ AdditionalHandler::checkParent(const SumoXMLTag currentTag, const std::vector<Su
             (parentTags.size() > 0) &&
             (std::find(parentTags.begin(), parentTags.end(), parent->getTag()) == parentTags.end())) {
         const std::string id = parent->hasStringAttribute(SUMO_ATTR_ID) ? ", id: '" + parent->getStringAttribute(SUMO_ATTR_ID) + "'" : "";
-        writeError("'" + toString(currentTag) + "' must be defined within the definition of a '" + toString(parentTags.front()) + "' (found '" + toString(parent->getTag()) + "'" + id + ").");
+        writeError(TLF("'%' must be defined within the definition of a '%' (found % '%').", toString(currentTag), toString(parentTags.front()), toString(parent->getTag()), id));
         ok = false;
+    }
+}
+
+
+bool
+AdditionalHandler::checkDetectPersons(const SumoXMLTag currentTag, const std::string& id, const std::string& detectPersons) {
+    if (detectPersons.empty() || SUMOXMLDefinitions::PersonModeValues.hasString(detectPersons)) {
+        return true;
+    } else {
+        writeError(TLF("Attribute '%' defined in % with id '%' doesn't have a valid value (given '%').", toString(SUMO_ATTR_DETECT_PERSONS), toString(currentTag), id, detectPersons));
+        return false;
     }
 }
 

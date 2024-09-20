@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: sumo\n"
 "Report-Msgid-Bugs-To: sumo-dev@eclipse.org\n"
 "POT-Creation-Date: 2024-07-22 10:12+0200\n"
-"PO-Revision-Date: 2024-09-17 09:31+0000\n"
+"PO-Revision-Date: 2024-09-20 11:47+0000\n"
 "Last-Translator: Mirko Barthauer <mirko.barthauer@dlr.de>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/eclipse-sumo/"
 "applications/it/>\n"
@@ -7288,19 +7288,21 @@ msgstr "Probabilità di nodi di avere esattamente 6 vicini"
 
 #: src/netgen/NGFrame.cpp:215
 msgid "Place nodes on a regular grid with spacing rand.min-distance"
-msgstr ""
+msgstr "Posiziona nodi su una griglia regolare a distanza di rand.min-distance"
 
 #: src/netgen/NGFrame.cpp:235
 msgid "You have to specify the type of network to generate."
-msgstr ""
+msgstr "Devi specificare il tipo di rete da generare."
 
 #: src/netgen/NGFrame.cpp:239
 msgid "You may specify only one type of network to generate at once."
-msgstr ""
+msgstr "Si può specificare soltanto un tipo di rete da generare alla volta."
 
 #: src/netgen/NGFrame.cpp:274
 msgid "Option 'random-type' takes no effect unless 'type-files' are loaded"
 msgstr ""
+"L'opzione 'random-type' mostra un'effetto soltanto se 'type-files' vengono "
+"caricati"
 
 #: src/netgen/netgen_main.cpp:90
 msgid ""
@@ -7311,15 +7313,17 @@ msgstr ""
 
 #: src/netgen/netgen_main.cpp:120
 msgid "Spider networks need at least 3 arms."
-msgstr ""
+msgstr "Reti di ragnatela necessitano almeno 3 rami."
 
 #: src/netgen/netgen_main.cpp:124
 msgid "Spider networks with many arms should use option spider.omit-center"
 msgstr ""
+"Si dovrebbe applicare l'opzione spider.omit-center nel caso di reti di "
+"ragnatela con molti rami"
 
 #: src/netgen/netgen_main.cpp:127
 msgid "Spider networks need at least one circle."
-msgstr ""
+msgstr "Reti di ragnatela necessitano almeno un cerchio."
 
 #: src/netgen/netgen_main.cpp:135
 #, c-format
@@ -7327,6 +7331,8 @@ msgid ""
 "The radius of spider networks should be at least % for the given lanenumber, "
 "lanewidth and junction radius"
 msgstr ""
+"Il raggio di reti di ragnatele dovrebbe essere di almeno % considerando il "
+"numero di corsie, la larghezza di corsia e il raggio di incroci dati"
 
 #: src/netgen/netgen_main.cpp:177
 msgid ""
@@ -7525,6 +7531,8 @@ msgstr ""
 #: src/netimport/NIFrame.cpp:194
 msgid "Whether one-way roads should be spread to the side instead of centered"
 msgstr ""
+"Se vie a senso unico devono essere posizionate verso il lato oppure verso il "
+"centro"
 
 #: src/netimport/NIFrame.cpp:197
 msgid "Import lane-specific access restrictions"
@@ -7550,19 +7558,19 @@ msgstr "Importa frecce di svolta da OSM per la creazione di collegamenti"
 
 #: src/netimport/NIFrame.cpp:213
 msgid "The default length of a public transport stop in FLOAT m"
-msgstr ""
+msgstr "La lunghezza standard di una fermata di trasporto pubblico in FLOAT m"
 
 #: src/netimport/NIFrame.cpp:215
 msgid "The default length of a bus stop in FLOAT m"
-msgstr ""
+msgstr "La lunghezza standard di una fermata di autobus in FLOAT m"
 
 #: src/netimport/NIFrame.cpp:217
 msgid "The default length of a tram stop in FLOAT m"
-msgstr ""
+msgstr "La lunghezza standard di una fermata tranviaria in FLOAT m"
 
 #: src/netimport/NIFrame.cpp:219
 msgid "The default length of a train stop in FLOAT m"
-msgstr ""
+msgstr "La lunghezza standard di una fermata ferroviaria in FLOAT m"
 
 #: src/netimport/NIFrame.cpp:222
 msgid "Specify custom rules for importing railway signals"
@@ -8882,11 +8890,13 @@ msgstr "Le classi di veicolo '%' dei file ingresso non si usano più."
 
 #: src/netimport/NINavTeqHelper.cpp:61
 msgid "Invalid speed code (edge '%')."
-msgstr ""
+msgstr "Codice di velocità invalido (arco '%')."
 
 #: src/netimport/NINavTeqHelper.cpp:64
 msgid "Non-numerical value for an edge's speed type occurred (edge '%')."
 msgstr ""
+"Un valore non numerico per il tipo di velocità dell'arco è stato incontrato ("
+"arco '%')."
 
 #: src/netimport/NINavTeqHelper.cpp:90
 msgid "Invalid lane number (edge '%')."
@@ -8899,7 +8909,7 @@ msgstr ""
 
 #: src/netimport/NITypeLoader.cpp:62
 msgid "Could not open %-file '%'."
-msgstr ""
+msgstr "Non ho potuto leggere il file % '%'."
 
 #: src/netimport/NIVisumTL.cpp:76
 msgid "invalid node for traffic light '%'"
@@ -8908,6 +8918,8 @@ msgstr "nodo invalido per il semaforo '%'"
 #: src/netimport/NIXMLConnectionsHandler.cpp:219
 msgid "Unable to project shape for connection from edge '%' to edge '%'."
 msgstr ""
+"La forma del collegamento tra l'arco '%' e l'arco '%' non poteva essere "
+"proiettata."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:227
 msgid "Could not set loaded connection from lane '%' to lane '%'."
@@ -8954,7 +8966,7 @@ msgstr "L'arco '%' non tocca il nodo '%'."
 #: src/netimport/NIXMLConnectionsHandler.cpp:421
 #, c-format
 msgid "Crossing at controlled node '%' must be prioritized"
-msgstr ""
+msgstr "Il passaggio pedonale del nodo controllato '%' deve essere prioritario"
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:426
 msgid "Unable to project shape for crossing at node '%'."
@@ -8971,7 +8983,7 @@ msgstr ""
 #: src/netimport/NIXMLConnectionsHandler.cpp:478
 #, c-format
 msgid "Edge '%' for walkingArea at node '%' is not known."
-msgstr ""
+msgstr "L'arco '%' per l'area pedonale nel nodo '%' è sconosciuta."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:504
 msgid "Unable to project shape for walkingArea at node '%'."
@@ -11596,7 +11608,7 @@ msgstr ""
 #: src/utils/options/OptionsCont.cpp:175
 #, c-format
 msgid "No option with the name '%' exists."
-msgstr ""
+msgstr "Non esiste nessun'opzione con il nome '%'."
 
 #: src/utils/options/OptionsCont.cpp:192
 #, c-format
@@ -11604,43 +11616,49 @@ msgid ""
 "Please note that '%' is deprecated.\n"
 " Use '%' instead."
 msgstr ""
+"Nota che '%' è obsoleto.\n"
+" Usa '%' al suo posto."
 
 #: src/utils/options/OptionsCont.cpp:388
 #, c-format
 msgid "The file list for '%' is empty."
-msgstr ""
+msgstr "L'elenco file per '%' è vuoto."
 
 #: src/utils/options/OptionsCont.cpp:394
 msgid "File '%' is not accessible (%)."
-msgstr ""
+msgstr "Il file '%' non è accessibile (%)."
 
 #: src/utils/options/OptionsCont.cpp:397
 msgid "Empty file name given; ignoring."
-msgstr ""
+msgstr "Il nome del file dato è vuoto; va ignorato."
 
 #: src/utils/options/OptionsCont.cpp:418
 msgid "Option '%' needs option '%'."
-msgstr ""
+msgstr "L'opzione '%' necessita l'opzione '%'."
 
 #: src/utils/options/OptionsCont.cpp:432
 msgid ""
 "A value for the option '%' was already set.\n"
 " Possible synonymes: "
 msgstr ""
+"Un valore è già stato impostasto per l'opzione '%'.\n"
+" Sinonimi possibili: "
 
 #: src/utils/options/OptionsCont.cpp:621 src/utils/options/OptionsCont.cpp:642
 msgid " Build features: "
-msgstr ""
+msgstr " Caratteristische del build: "
 
 #: src/utils/options/OptionsCont.cpp:625
 msgid ""
 " License EPL-2.0: Eclipse Public License Version 2 <https://eclipse.org/"
 "legal/epl-v20.html>"
 msgstr ""
+" Licenza EPL-2.0: Eclipse Public License Versione 2 <https://eclipse.org/"
+"legal/epl-v20.html>"
 
 #: src/utils/options/OptionsCont.cpp:626
 msgid " Use --help to get the list of options."
-msgstr ""
+msgstr " Usa --help per accedere all'elenco di opzioni."
 
 #: src/utils/options/OptionsCont.cpp:673
 msgid "Could not save configuration to '%'"

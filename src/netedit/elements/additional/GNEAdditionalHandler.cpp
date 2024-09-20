@@ -410,7 +410,8 @@ GNEAdditionalHandler::buildParkingSpace(const CommonXMLStructure::SumoBaseObject
 
 void
 GNEAdditionalHandler::buildE1Detector(const CommonXMLStructure::SumoBaseObject* sumoBaseObject, const std::string& id, const std::string& laneID,
-                                      const double position, const SUMOTime period, const std::string& file, const std::vector<std::string>& vehicleTypes, const std::string& name,
+                                      const double position, const SUMOTime period, const std::string& file, const std::vector<std::string>& vehicleTypes,
+                                      const std::vector<std::string>& nextEdges, const std::string& detectPersons, const std::string& name,
                                       const bool friendlyPos, const Parameterised::Map& parameters) {
     // check conditions
     if (!SUMOXMLDefinitions::isValidDetectorID(id)) {
@@ -433,7 +434,8 @@ GNEAdditionalHandler::buildE1Detector(const CommonXMLStructure::SumoBaseObject* 
             writeErrorInvalidVTypes(SUMO_TAG_INDUCTION_LOOP, id);
         } else {
             // build E1
-            GNEAdditional* detectorE1 = new GNEInductionLoopDetector(id, lane, myNet, position, period, file, vehicleTypes, name, friendlyPos, parameters);
+            GNEAdditional* detectorE1 = new GNEInductionLoopDetector(id, lane, myNet, position, period, file, vehicleTypes,
+                    nextEdges, detectPersons, name, friendlyPos, parameters);
             // insert depending of allowUndoRedo
             if (myAllowUndoRedo) {
                 myNet->getViewNet()->getUndoList()->begin(detectorE1, TL("add induction loop '") + id + "'");
@@ -454,9 +456,10 @@ GNEAdditionalHandler::buildE1Detector(const CommonXMLStructure::SumoBaseObject* 
 
 void
 GNEAdditionalHandler::buildSingleLaneDetectorE2(const CommonXMLStructure::SumoBaseObject* sumoBaseObject, const std::string& id, const std::string& laneID,
-        const double pos, const double length, const SUMOTime period, const std::string& trafficLight, const std::string& filename, const std::vector<std::string>& vehicleTypes,
-        const std::string& name, const SUMOTime timeThreshold, const double speedThreshold, const double jamThreshold, const bool friendlyPos,
-        const Parameterised::Map& parameters) {
+        const double pos, const double length, const SUMOTime period, const std::string& trafficLight, const std::string& filename,
+        const std::vector<std::string>& vehicleTypes, const std::vector<std::string>& nextEdges, const std::string& detectPersons,
+        const std::string& name, const SUMOTime timeThreshold, const double speedThreshold, const double jamThreshold,
+        const bool friendlyPos, const bool show, const Parameterised::Map& parameters) {
     // check conditions
     if (!SUMOXMLDefinitions::isValidDetectorID(id)) {
         writeInvalidID(SUMO_TAG_LANE_AREA_DETECTOR, id);
@@ -495,10 +498,9 @@ GNEAdditionalHandler::buildSingleLaneDetectorE2(const CommonXMLStructure::SumoBa
             writeErrorInvalidVTypes(SUMO_TAG_LANE_AREA_DETECTOR, id);
         } else {
             // build E2 single lane
-            GNEAdditional* detectorE2 = new GNELaneAreaDetector(
-                id, lane, myNet, pos, length, period, trafficLight, filename,
-                vehicleTypes, name, timeThreshold, speedThreshold, jamThreshold,
-                friendlyPos, parameters);
+            GNEAdditional* detectorE2 = new GNELaneAreaDetector(id, lane, myNet, pos, length, period, trafficLight, filename,
+                    vehicleTypes, nextEdges, detectPersons, name, timeThreshold,
+                    speedThreshold, jamThreshold, friendlyPos, show, parameters);
             // insert depending of allowUndoRedo
             if (myAllowUndoRedo) {
                 myNet->getViewNet()->getUndoList()->begin(detectorE2, TL("add lane area detector '") + id + "'");
@@ -519,9 +521,10 @@ GNEAdditionalHandler::buildSingleLaneDetectorE2(const CommonXMLStructure::SumoBa
 
 void
 GNEAdditionalHandler::buildMultiLaneDetectorE2(const CommonXMLStructure::SumoBaseObject* sumoBaseObject, const std::string& id, const std::vector<std::string>& laneIDs,
-        const double pos, const double endPos, const SUMOTime period, const std::string& trafficLight, const std::string& filename, const std::vector<std::string>& vehicleTypes,
-        const std::string& name, const SUMOTime timeThreshold, const double speedThreshold, const double jamThreshold, const bool friendlyPos,
-        const Parameterised::Map& parameters) {
+        const double pos, const double endPos, const SUMOTime period, const std::string& trafficLight, const std::string& filename,
+        const std::vector<std::string>& vehicleTypes, const std::vector<std::string>& nextEdges, const std::string& detectPersons,
+        const std::string& name, const SUMOTime timeThreshold, const double speedThreshold, const double jamThreshold,
+        const bool friendlyPos, const bool show, const Parameterised::Map& parameters) {
     // check conditions
     if (!SUMOXMLDefinitions::isValidDetectorID(id)) {
         writeInvalidID(SUMO_TAG_LANE_AREA_DETECTOR, id);
@@ -556,10 +559,9 @@ GNEAdditionalHandler::buildMultiLaneDetectorE2(const CommonXMLStructure::SumoBas
                 writeErrorInvalidVTypes(SUMO_TAG_LANE_AREA_DETECTOR, id);
             } else {
                 // build E2 multilane detector
-                GNEAdditional* detectorE2 = new GNELaneAreaDetector(
-                    id, lanes, myNet, pos, endPos, period, trafficLight, filename,
-                    vehicleTypes, name, timeThreshold, speedThreshold, jamThreshold,
-                    friendlyPos, parameters);
+                GNEAdditional* detectorE2 = new GNELaneAreaDetector(id, lanes, myNet, pos, endPos, period, trafficLight, filename,
+                        vehicleTypes, nextEdges, detectPersons, name, timeThreshold,
+                        speedThreshold, jamThreshold, friendlyPos, show, parameters);
                 // insert depending of allowUndoRedo
                 if (myAllowUndoRedo) {
                     myNet->getViewNet()->getUndoList()->begin(detectorE2, TL("add lane area detector '") + id + "'");
@@ -585,8 +587,9 @@ GNEAdditionalHandler::buildMultiLaneDetectorE2(const CommonXMLStructure::SumoBas
 
 void
 GNEAdditionalHandler::buildDetectorE3(const CommonXMLStructure::SumoBaseObject* sumoBaseObject, const std::string& id, const Position& pos, const SUMOTime period,
-                                      const std::string& filename, const std::vector<std::string>& vehicleTypes, const std::string& name, const SUMOTime timeThreshold,
-                                      const double speedThreshold, const bool expectedArrival, const Parameterised::Map& parameters) {
+                                      const std::string& filename, const std::vector<std::string>& vehicleTypes, const std::vector<std::string>& nextEdges,
+                                      const std::string& detectPersons, const std::string& name, const SUMOTime timeThreshold, const double speedThreshold,
+                                      const bool openEntry, const bool expectedArrival, const Parameterised::Map& parameters) {
     // check conditions
     if (!SUMOXMLDefinitions::isValidDetectorID(id)) {
         writeInvalidID(SUMO_TAG_ENTRY_EXIT_DETECTOR, id);
@@ -604,7 +607,8 @@ GNEAdditionalHandler::buildDetectorE3(const CommonXMLStructure::SumoBaseObject* 
         // get netedit parameters
         NeteditParameters neteditParameters(sumoBaseObject);
         // build E3
-        GNEAdditional* E3 = new GNEMultiEntryExitDetector(id, myNet, pos, period, filename, vehicleTypes, name, timeThreshold, speedThreshold, expectedArrival, parameters);
+        GNEAdditional* E3 = new GNEMultiEntryExitDetector(id, myNet, pos, period, filename, vehicleTypes, nextEdges, detectPersons,
+                name, timeThreshold, speedThreshold, openEntry, expectedArrival, parameters);
         // insert depending of allowUndoRedo
         if (myAllowUndoRedo) {
             myNet->getViewNet()->getUndoList()->begin(E3, TL("add entry-exit detector '") + id + "'");
@@ -693,7 +697,8 @@ GNEAdditionalHandler::buildDetectorExit(const CommonXMLStructure::SumoBaseObject
 
 void
 GNEAdditionalHandler::buildDetectorE1Instant(const CommonXMLStructure::SumoBaseObject* sumoBaseObject, const std::string& id, const std::string& laneID, double pos,
-        const std::string& filename, const std::vector<std::string>& vehicleTypes, const std::string& name, const bool friendlyPos, const Parameterised::Map& parameters) {
+        const std::string& filename, const std::vector<std::string>& vehicleTypes, const std::vector<std::string>& nextEdges,
+        const std::string& detectPersons, const std::string& name, const bool friendlyPos, const Parameterised::Map& parameters) {
     // check conditions
     if (!SUMOXMLDefinitions::isValidDetectorID(id)) {
         writeInvalidID(SUMO_TAG_INSTANT_INDUCTION_LOOP, id);
@@ -711,7 +716,8 @@ GNEAdditionalHandler::buildDetectorE1Instant(const CommonXMLStructure::SumoBaseO
             writeErrorInvalidPosition(SUMO_TAG_INSTANT_INDUCTION_LOOP, id);
         } else {
             // build E1 instant
-            GNEAdditional* detectorE1Instant = new GNEInstantInductionLoopDetector(id, lane, myNet, pos, filename, vehicleTypes, name, friendlyPos, parameters);
+            GNEAdditional* detectorE1Instant = new GNEInstantInductionLoopDetector(id, lane, myNet, pos, filename, vehicleTypes, nextEdges,
+                    detectPersons, name, friendlyPos, parameters);
             // insert depending of allowUndoRedo
             if (myAllowUndoRedo) {
                 myNet->getViewNet()->getUndoList()->begin(detectorE1Instant, TL("add instant induction loop '") + id + "'");

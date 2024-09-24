@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: sumo\n"
 "Report-Msgid-Bugs-To: sumo-dev@eclipse.org\n"
 "POT-Creation-Date: 2024-07-22 10:12+0200\n"
-"PO-Revision-Date: 2024-09-20 11:47+0000\n"
+"PO-Revision-Date: 2024-09-24 06:31+0000\n"
 "Last-Translator: Mirko Barthauer <mirko.barthauer@dlr.de>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/eclipse-sumo/"
 "applications/it/>\n"
@@ -504,6 +504,7 @@ msgstr ""
 #: src/dfrouter/dfrouter_main.cpp:70
 msgid "No detector file given (use --detector-files <FILE>)."
 msgstr ""
+"Non è stato dato nessun file di rivelatori (usa --detector-files <FILE>)."
 
 #: src/dfrouter/dfrouter_main.cpp:76
 msgid "Could not open detector file '%'"
@@ -516,7 +517,7 @@ msgstr "Nessun rivelatore trovato."
 #: src/dfrouter/dfrouter_main.cpp:103
 #, c-format
 msgid "The measure-file '%' can not be opened."
-msgstr ""
+msgstr "Il file di misure '%' non poteva essere stato aperto."
 
 #: src/dfrouter/dfrouter_main.cpp:124
 msgid "Removing empty detectors"
@@ -573,7 +574,7 @@ msgstr ""
 
 #: src/duarouter/RODUAFrame.cpp:69
 msgid "Write generated route alternatives to FILE"
-msgstr ""
+msgstr "Scrivi itinerari alternativi generati in FILE"
 
 #: src/duarouter/RODUAFrame.cpp:72
 msgid "Write edge splits and connectivity to FILE"
@@ -4987,7 +4988,7 @@ msgstr "Errore nella generazione della geometria: %"
 
 #: src/microsim/transportables/MSPModel_JuPedSim.cpp:1133
 msgid "Error while adding waiting set for % on '%': %"
-msgstr "Errore aggiungendo un set attesa per % su #%': %"
+msgstr "Errore aggiungendo un'attività di attesa per % su '%': %"
 
 #: src/microsim/transportables/MSPModel_JuPedSim.cpp:1183
 msgid ""
@@ -9750,15 +9751,15 @@ msgstr "Scrivi linee di trasporto pubblico in FILE"
 
 #: src/netwrite/NWFrame.cpp:111
 msgid "Clean-up pt stops that are not served by any line"
-msgstr ""
+msgstr "Rimuovi fermate di trasporto pubblico servite da nessuna linea"
 
 #: src/netwrite/NWFrame.cpp:114
 msgid "Writes parking areas to FILE"
-msgstr ""
+msgstr "Scrivi parcheggi in FILE"
 
 #: src/netwrite/NWFrame.cpp:117
 msgid "Analyze topology of the railway network"
-msgstr ""
+msgstr "Analizza la topologia della rete ferroviaria"
 
 #: src/netwrite/NWFrame.cpp:121
 msgid ""
@@ -9804,7 +9805,7 @@ msgstr ""
 
 #: src/netwrite/NWFrame.cpp:189
 msgid "Writing network"
-msgstr ""
+msgstr "Scrittura della rete"
 
 #: src/netwrite/NWWriter_DlrNavteq.cpp:92
 msgid ""
@@ -10486,26 +10487,32 @@ msgstr ""
 msgid ""
 "Comma separated list of param keys to compare for additional restrictions"
 msgstr ""
+"Elenco di chiavi di parametri separati da comma per compararli al riguardo "
+"di restrizioni addizionali"
 
 #: src/router/ROFrame.cpp:186
 msgid "Interpolate edge weights at interval boundaries"
-msgstr ""
+msgstr "Interpola pesi degli archi tra cambi di intervalli"
 
 #: src/router/ROFrame.cpp:190
 msgid "Expand the end of the last loaded weight interval to infinity"
-msgstr ""
+msgstr "Imposta la fine dell'ultimo intervallo di pesi caricato all'infinità"
 
 #: src/router/ROFrame.cpp:194
 msgid ""
 "Apply the given time penalty when computing routing costs for minor-link "
 "internal lanes"
 msgstr ""
+"Applica la pena di tempo data quando si calcola il costo di itinerario per "
+"corsie interne su collegamenti minori"
 
 #: src/router/ROFrame.cpp:197
 msgid ""
 "Apply the given time penalty when computing routing costs across a traffic "
 "light"
 msgstr ""
+"Applica la pena di tempo data quando si calcola il costo di itinerario "
+"attraverso un semaforo"
 
 #: src/router/ROFrame.cpp:224
 msgid "Defaults will override given values"
@@ -11202,52 +11209,58 @@ msgid ""
 "Write time values as hour:minute:second or day:hour:minute:second rather "
 "than seconds"
 msgstr ""
+"Scrivi valori temporali come ora:minuto:secondo oppure giorno:ora:minuto:"
+"secondo invece di secondi"
 
 #: src/utils/common/UtilExceptions.h:43 src/utils/xml/XMLSubSys.cpp:175
 msgid "Process Error"
-msgstr ""
+msgstr "Errore di processo"
 
 #: src/utils/common/UtilExceptions.h:72
 msgid "Empty Data"
-msgstr ""
+msgstr "Dati vuoti"
 
 #: src/utils/common/UtilExceptions.h:99
 msgid "Invalid Number Format %"
-msgstr ""
+msgstr "Formato numerico invalido %"
 
 #: src/utils/common/UtilExceptions.h:112
 msgid "Invalid Time Format %"
-msgstr ""
+msgstr "Formato temporale invalido %"
 
 #: src/utils/common/UtilExceptions.h:125
 msgid "Invalid Bool Format %"
-msgstr ""
+msgstr "Formato booleano invalido %"
 
 #: src/utils/common/UtilExceptions.h:137
 msgid "Out Of Bounds"
-msgstr ""
+msgstr "Fuori dei limiti"
 
 #: src/utils/common/UtilExceptions.h:151
 msgid "Unknown Element"
-msgstr ""
+msgstr "Elemento sconosciuto"
 
 #: src/utils/distribution/Distribution_Parameterized.cpp:82
 #: src/utils/distribution/Distribution_Parameterized.cpp:84
 #: src/utils/distribution/Distribution_Parameterized.cpp:100
 msgid "Invalid format of distribution parameterized"
-msgstr ""
+msgstr "Formato invalido per una distribuzione con parametri"
 
 #: src/utils/distribution/Distribution_Parameterized.cpp:170
 msgid "minimum value % larger than maximum %"
-msgstr ""
+msgstr "valore minimo % maggiore del valore massimo %"
 
 #: src/utils/distribution/Distribution_Parameterized.cpp:173
 msgid "minimum value % too large for distribution with mean % and deviation %"
 msgstr ""
+"valore minimo % troppo grande per una distribuzione con una media di % e una "
+"deviazione di %"
 
 #: src/utils/distribution/Distribution_Parameterized.cpp:176
 msgid "maximum value % too small for distribution with mean % and deviation %"
 msgstr ""
+"valore massimo % troppo piccolo per una distribuzione con una media di % e "
+"una deviazione di %"
 
 #: src/utils/distribution/Distribution_Parameterized.cpp:179
 msgid ""

@@ -1424,7 +1424,7 @@ MSBaseVehicle::addStop(const SUMOVehicleParameter::Stop& stopPar, std::string& e
 
 void
 MSBaseVehicle::setSkips(MSStop& stop, int prevActiveStops) {
-    if (hasDeparted() && stop.pars.index <= 0 && stop.edge > myRoute->begin()) {
+    if (hasDeparted() && stop.edge > myRoute->begin()) {
         // if the route is looped we must patch the index to ensure that state
         // loading (and vehroute-output) encode the correct number of skips
         int foundSkips = 0;
@@ -1444,6 +1444,7 @@ MSBaseVehicle::setSkips(MSStop& stop, int prevActiveStops) {
             itPrev = myRoute->begin() + myParameter->departEdge;
             prevEndPos = myDepartPos;
         }
+        //auto itPrevOrig = itPrev;
         if (*itPrev == *stop.edge && prevEndPos > stop.pars.endPos) {
             itPrev++;
         }
@@ -1454,10 +1455,18 @@ MSBaseVehicle::setSkips(MSStop& stop, int prevActiveStops) {
             }
             itPrev++;
         }
+        int newIndex = STOP_INDEX_END;
         if (foundSkips > 0) {
-            //std::cout << "   foundSkips=" << foundSkips << "\n";
-            const_cast<SUMOVehicleParameter::Stop&>(stop.pars).index = (int)myPastStops.size() + prevActiveStops + foundSkips;
+            //if (getID() == "77_0_0") {
+            //    std::cout << SIMTIME << " veh=" << getID() << " past=" << myPastStops.size() << " prevActive=" << prevActiveStops
+            //        << " edge=" << (*stop.edge)->getID() << " routeIndex=" << (stop.edge - myRoute->begin())
+            //        << " prevEdge=" << (*itPrevOrig)->getID()
+            //        << " prevIndex=" << (itPrevOrig - myRoute->begin())
+            //        << " skips=" << foundSkips << "\n";
+            //}
+            newIndex = (int)myPastStops.size() + prevActiveStops + foundSkips;
         }
+        const_cast<SUMOVehicleParameter::Stop&>(stop.pars).index = newIndex;
     }
 }
 

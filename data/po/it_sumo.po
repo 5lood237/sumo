@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: sumo\n"
 "Report-Msgid-Bugs-To: sumo-dev@eclipse.org\n"
 "POT-Creation-Date: 2024-07-22 10:12+0200\n"
-"PO-Revision-Date: 2024-09-24 06:31+0000\n"
+"PO-Revision-Date: 2024-09-25 09:23+0000\n"
 "Last-Translator: Mirko Barthauer <mirko.barthauer@dlr.de>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/eclipse-sumo/"
 "applications/it/>\n"
@@ -7137,19 +7137,19 @@ msgstr "Imposta la lunghezza delle corsie di svolta generate a FLOAT"
 
 #: src/netgen/NGFrame.cpp:53
 msgid ""
-"Apply random spatial perturbation in x direction according the the given "
+"Apply random spatial perturbation in x direction according to the given "
 "distribution"
 msgstr ""
 
 #: src/netgen/NGFrame.cpp:55
 msgid ""
-"Apply random spatial perturbation in y direction according the the given "
+"Apply random spatial perturbation in y direction according to the given "
 "distribution"
 msgstr ""
 
 #: src/netgen/NGFrame.cpp:57
 msgid ""
-"Apply random spatial perturbation in z direction according the the given "
+"Apply random spatial perturbation in z direction according to the given "
 "distribution"
 msgstr ""
 
@@ -9846,38 +9846,42 @@ msgstr ""
 msgid ""
 "Ignoring option \"proj.plain-geo\" because no geo-conversion has been defined"
 msgstr ""
+"L'opzione \"proj.plain-geo\" viene ignorata perché non è stato definito "
+"nessuna conversione geografica"
 
 #: src/od2trips_main.cpp:80
 msgid "Loads TAZ (districts; also from networks) from FILE(s)"
 msgstr ""
+"Carica zone di assegnazione del traffico (distretti; anche da reti) da uno o "
+"più FILE"
 
 #: src/od2trips_main.cpp:102
 msgid "Writes trip definitions into FILE"
-msgstr ""
+msgstr "Scrive definizioni di corse in FILE"
 
 #: src/od2trips_main.cpp:105
 msgid "Writes flow definitions into FILE"
-msgstr ""
+msgstr "Scrive definizioni di flussi in FILE"
 
 #: src/od2trips_main.cpp:108
 msgid "Writes probabilistic flow instead of evenly spaced flow"
-msgstr ""
+msgstr "Scrive flussi probabilistici invece di quelli a distanza uniforme"
 
 #: src/od2trips_main.cpp:111
 msgid "Writes pedestrians instead of vehicles"
-msgstr ""
+msgstr "Scrive pedoni al posto di veicoli"
 
 #: src/od2trips_main.cpp:114
 msgid "Writes persontrips instead of vehicles"
-msgstr ""
+msgstr "Scrive corse di persone al posto di veicoli"
 
 #: src/od2trips_main.cpp:117
 msgid "Add modes attribute to personTrips"
-msgstr ""
+msgstr "Aggiungi l'attributo \"modes\" alle corse di persone"
 
 #: src/od2trips_main.cpp:124
 msgid "Writes trips between junctions"
-msgstr ""
+msgstr "Scrivi corse tra incroci"
 
 #: src/od2trips_main.cpp:129 src/router/ROFrame.cpp:116
 msgid "Defines the begin time; Previous trips will be discarded"
@@ -9918,7 +9922,7 @@ msgid "No trip table output file (-o) or flow-output is specified."
 msgstr ""
 
 #: src/od2trips_main.cpp:205
-msgid "Only one of the the options 'pedestrians' and 'persontrips' may be set."
+msgid "Only one of the Options 'pedestrians' and 'persontrips' may be set."
 msgstr ""
 
 #: src/od2trips_main.cpp:248
@@ -10665,32 +10669,39 @@ msgstr "L'arco '%' è sconnesso dall'arco '%' del veicolo '%'."
 #: src/router/RORouteHandler.cpp:204
 msgid "Triggered departure for person '%' requires starting with a ride."
 msgstr ""
+"La partenza generata della persona #%' richiede di iniziare con un passaggio."
 
 #: src/router/RORouteHandler.cpp:206
 msgid ""
 "Triggered departure for container '%' requires starting with a transport."
 msgstr ""
+"La partenza generata del contenitore '%' richiede di iniziare con una "
+"spedizione."
 
 #: src/router/RORouteHandler.cpp:228
 #, c-format
 msgid "Found % outside container element"
-msgstr ""
+msgstr "Incontrato % fuori di elementi di contenitori"
 
 #: src/router/RORouteHandler.cpp:352
 msgid "No probability for route %, using default."
 msgstr ""
+"Nessuna probabilità indicata per l'itinerario %, allora viene usato il "
+"valore standard."
 
 #: src/router/RORouteHandler.cpp:507
 msgid "Ids of internal route distributions are ignored (vehicle '%')."
 msgstr ""
+"I codici identificativi delle distribuzione di itinerari interne vengono "
+"ignorati (vehicle '%')."
 
 #: src/router/RORouteHandler.cpp:623
 msgid "Discarding person '%' because her plan is empty"
-msgstr ""
+msgstr "Omissione della persona '%' a causa del suo piano vuoto"
 
 #: src/router/RORouteHandler.cpp:650
 msgid "Discarding personFlow '%' because their plan is empty"
-msgstr ""
+msgstr "Omissione del flusso di persone '%' a causa del piano vuoto"
 
 #: src/router/RORouteHandler.cpp:658
 #, c-format
@@ -11030,16 +11041,18 @@ msgstr ""
 
 #: src/utils/common/MsgHandler.cpp:290
 msgid "Could not set locale to '%'."
-msgstr ""
+msgstr "Non ho potuto impostare il locale a '%'."
 
 #: src/utils/common/MsgHandler.cpp:295
 msgid ""
 "Environment variable SUMO_HOME is not set, could not find localized messages."
 msgstr ""
+"La variabile d'ambiente SUMO_HOME non è stata impostata e per cui i messaggi "
+"localizzati non sono stati trovati."
 
 #: src/utils/common/MsgHandler.cpp:301
 msgid "Could not find localized messages."
-msgstr ""
+msgstr "I messaggi localizzati non sono stati trovati."
 
 #: src/utils/common/MsgHandler.cpp:310
 msgid "Warning: "
@@ -11067,23 +11080,25 @@ msgstr "Conversione invalida da string a doubles (valore vuoto)"
 
 #: src/utils/common/Parameterised.cpp:208
 msgid "Invalid format of parameter (%)"
-msgstr ""
+msgstr "Formato invalido di parametro (%)"
 
 #: src/utils/common/Parameterised.cpp:233
 msgid "Invalid format of attribute '%'. Attribute must start with a letter"
 msgstr ""
+"Formato invalido dell'attributo '%'. L'attributo deve iniziare con una "
+"lettera"
 
 #: src/utils/common/Parameterised.cpp:240
 msgid "Invalid format of attribute (%)"
-msgstr ""
+msgstr "Formato invalido di attributo (%)"
 
 #: src/utils/common/RandHelper.cpp:65
 msgid "Initialises the random number generator with the current system time"
-msgstr ""
+msgstr "Inizia il generatore di numeri casuali con l'ora attuale del sistema"
 
 #: src/utils/common/RandHelper.cpp:69
 msgid "Initialises the random number generator with the given value"
-msgstr ""
+msgstr "Inizia il generatore di numeri casuali con il valore dato"
 
 #: src/utils/common/SUMOVehicleClass.cpp:199
 msgid "Simultaneous specification of vClasses and exceptions is not allowed"
@@ -11577,7 +11592,7 @@ msgstr ""
 
 #: src/utils/iodevices/OutputDevice.cpp:88
 msgid "No port number given."
-msgstr ""
+msgstr "Non è stato indicato il numero di porta."
 
 #: src/utils/iodevices/OutputDevice.cpp:163
 msgid "Error on closing output devices."

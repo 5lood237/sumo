@@ -4242,7 +4242,7 @@ MSVehicle::checkReversal(bool& canReverse, double speedThreshold, double seen) c
 
         // ensure that bidi-edges exist for all further edges
         // and that no stops will be skipped when reversing
-        // and that the the train will not be on top of a red rail signal after reversal
+        // and that the train will not be on top of a red rail signal after reversal
         const MSLane* bidi = myLane->getBidiLane();
         int view = 2;
         for (MSLane* further : myFurtherLanes) {
@@ -7621,6 +7621,7 @@ MSVehicle::loadState(const SUMOSAXAttributes& attrs, const SUMOTime offset) {
         // fix stops
         while (pastStops > 0) {
             myPastStops.push_back(myStops.front().pars);
+            myPastStops.back().routeIndex = myStops.front().edge - myRoute->begin();
             myStops.pop_front();
             pastStops--;
         }

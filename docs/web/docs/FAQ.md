@@ -61,7 +61,7 @@ title: FAQ
   other people about SUMO.
 - Answer questions on the [sumo-user mailing list](Contact.md)
   whenever you know the answer
-- Contribute to this wiki ([contact us](Contact.md), so we can
+- Contribute to this documentation ([contact us](Contact.md), so we can
   give you editing rights)
 - Create a video tutorial and tell us about it
 - Join us at the annual [SUMO User Conference](https://eclipse.dev/sumo/conference/)
@@ -146,11 +146,11 @@ be your problem. 32bit-applications may only use 2GB of RAM. Use the
 work with larger files. If this does not fix the crash, please report
 this as a bug [as explained below](#how_do_i_report_erroneous_behavior_of_a_sumo_application).
 
-### Why does SUMO not behave as documented in this wiki?
+### Why does SUMO not behave as documented here?
 
-This wiki documents the behavior of the [latest development version](Downloads.md#nightly_snapshots). This is usually quite
-close the the [latest release](Downloads.md) (differences are
-explicitly listed in the [ChangeLog](ChangeLog.md). If you are
+This documentation refers to the [latest development version](Downloads.md#nightly_snapshots). This is usually quite
+close to the [latest release](Downloads.md) (differences are
+explicitly listed in the [ChangeLog](ChangeLog.md)). If you are
 using an older version of SUMO, you need to refer to [the documentation that is packaged with that version](Downloads.md#older_releases_and_alternative_download). Note that we do
 not back-port bugfixes to older version of SUMO. If possible you should
 always use the latest version of SUMO.
@@ -219,7 +219,7 @@ you may appear to be lazy).
   - read the documentation
   - check out the [Tutorials](Tutorials/index.md)
   - do a web search (past questions and answers from the mailing list can be found by google)
-  - describe which documentation you used, especially when [your experience doesn't match the documentation](#why_does_sumo_not_behave_as_documented_in_this_wiki)
+  - describe which documentation you used, especially when [your experience doesn't match the documentation](#why_does_sumo_not_behave_as_documented_here)
 - Do not ask the same thing twice in a short span of time. If you are
 in a hurry and cannot get an answer, try to change your question
 according to the above suggestions.
@@ -394,7 +394,7 @@ and simply type `git pull`.
 
 ### Is there further documentation on Git?
 
-  There is the [Git book](https://git-scm.com/book/) and the [GitHub help](https://help.github.com/) is also worth reading.
+  There is the [Git book](https://git-scm.com/book/en/v2) and the [GitHub help](https://help.github.com/) is also worth reading.
 
 ### How to get an older version of SUMO?
 
@@ -785,7 +785,7 @@ There are different ways to avoid this:
   - randomTrips.py provides option ** --junction-taz** for this purpose
 - set duarouter option **--remove-loops**  which will cut off starting / ending turn-arounds in the route
 
-Turn-arounds may also happen in the middle of the route because they are perceived as a faster alternative (and this may even be correct, depending on the state of traffic). To discourage the use of turn-arounds, the option **--weights.turnaround-penalty** may be given a higher value (default is 5.0). Both [sumo])(sumo.md) and [duarouter](duarouter.md) support this option.
+Turn-arounds may also happen in the middle of the route because they are perceived as a faster alternative (and this may even be correct, depending on the state of traffic). To discourage the use of turn-arounds, the option **--weights.turnaround-penalty** may be given a higher value (default is 5.0). Both [sumo](sumo.md) and [duarouter](duarouter.md) support this option.
 
 ## Simulation
 
@@ -1035,7 +1035,7 @@ This reproducibility is often necessary (i.e. for debugging a scenario).
 However, to avoid biases from this "fixed" randomness it is often useful to run the simulation multiple times and perform analysis on the ensemble of results.
 Likewise, in the real world different days have different traffic and it is more reliable to draw conclusions from multiple days rather than a single day.
 
-To change the default randomness, either option **--seed** or option **--random** must be used. The first option sets a user-defined intialization for the random number generator whereas the other picks a random seed (which will be different on every run).
+To change the default randomness, either option **--seed** or option **--random** must be used. The first option sets a user-defined initialization for the random number generator whereas the other picks a random seed (which will be different on every run).
 
 !!! note
     These options apply to sumo, duarouter and many python tools which employ randomization.
@@ -1072,7 +1072,7 @@ Functions that are meant to capture specific human behaviors can be switched of 
 - imperfect acceleration, dawdling: `sigma="0"`
 - imperfect compliance with the speed limit: `speedDev="0"` in the `vType` or `speedFactor="1"` in the `<vehicle>`
 
-Further safey-critical behaviors are described at [Safety](Simulation/Safety.md#safety-related_parameters).
+Further safety-critical behaviors are described at [Safety](Simulation/Safety.md#safety-related_parameters).
 
 ### Why are queuing vehicles on a lane drawn as stacked in sumo-gui?
 

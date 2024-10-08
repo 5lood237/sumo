@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: sumo\n"
 "Report-Msgid-Bugs-To: sumo-dev@eclipse.org\n"
 "POT-Creation-Date: 2024-07-22 10:12+0200\n"
-"PO-Revision-Date: 2024-09-25 09:23+0000\n"
+"PO-Revision-Date: 2024-10-07 11:12+0000\n"
 "Last-Translator: Mirko Barthauer <mirko.barthauer@dlr.de>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/eclipse-sumo/"
 "applications/it/>\n"
@@ -3081,41 +3081,44 @@ msgstr ""
 
 #: src/microsim/MSRouteHandler.cpp:1225
 msgid "The chargingStation '%' is not known%."
-msgstr ""
+msgstr "La stazione di ricarica '%' è sconosciuta%."
 
 #: src/microsim/MSRouteHandler.cpp:1232
 msgid "The overhead wire segment '%' is not known%."
-msgstr ""
+msgstr "Il segmento di catenaria '%' è sconosciuto%."
 
 #: src/microsim/MSRouteHandler.cpp:1236
 msgid "Invalid stop definition%."
-msgstr ""
+msgstr "Definizione di fermata invalida%."
 
 #: src/microsim/MSRouteHandler.cpp:1284
 msgid "The edge '%' for a stop is not known%."
-msgstr ""
+msgstr "L'arco '%' di una fermata è sconosciuto%."
 
 #: src/microsim/MSRouteHandler.cpp:1298
 msgid "The lane '%' for a stop is not known%."
-msgstr ""
+msgstr "La corsia '%' di una fermata è sconosciuta%."
 
 #: src/microsim/MSRouteHandler.cpp:1330
 msgid "Could not map stop position '%' to the network%."
-msgstr ""
+msgstr "Non ho potuto assegnare la posizione di fermata '%' nella rete%."
 
 #: src/microsim/MSRouteHandler.cpp:1347
 msgid ""
 "A stop must be placed on a busStop, a chargingStation, an "
 "overheadWireSegment, a containerStop, a parkingArea, an edge or a lane%."
 msgstr ""
+"Una fermata deve essere posizionata su una fermata di autobus, una stazione "
+"di ricarica, un segmento di catenaria, una fermata di contenitori, un "
+"parcheggio, un'arco oppure una corsia%."
 
 #: src/microsim/MSRouteHandler.cpp:1358
 msgid "Deprecated attribute 'pos' in description of stop%."
-msgstr ""
+msgstr "Attributo obsoleto 'pos' nella descrizione della fermata%."
 
 #: src/microsim/MSRouteHandler.cpp:1366
 msgid "Invalid start or end position for stop on %'%."
-msgstr ""
+msgstr "Posizione iniziale o terminale invalida per la fermata su %'%."
 
 #: src/microsim/MSRouteHandler.cpp:1380
 msgid "Disconnected plan for % '%' (%!=%)."
@@ -3319,10 +3322,12 @@ msgstr "Il veicolo '%' salta la fermata sulla corsia '%' ore=%."
 #: src/microsim/MSVehicle.cpp:7570
 msgid "Error: Invalid vehicles in state (may be a meso state)!"
 msgstr ""
+"Errore: Lo stato contiene dei veicoli invalidi (potrebbe trattarsi di uno "
+"stato mesoscopico)!"
 
 #: src/microsim/MSVehicle.cpp:7601
 msgid "Action steps are out of sync for loaded vehicle '%'."
-msgstr ""
+msgstr "I passi di azione del veicolo caricato '%' non sono sincronizzati."
 
 #: src/microsim/MSVehicleControl.cpp:524
 msgid "Vehicle '%' aborted waiting %."
@@ -3338,6 +3343,8 @@ msgid ""
 "The vType '%' has a 'mass' attribute and a 'vehicleMass' parameter. The "
 "'mass' attribute will take precedence."
 msgstr ""
+"Il tipo di veicolo '%' contiene gli attributi 'mass' e 'vehicleMass' allo "
+"stesso tempo. L'attributo 'mass' viene preferito."
 
 #: src/microsim/MSVehicleType.cpp:325
 #, c-format
@@ -3346,18 +3353,25 @@ msgid ""
 "the 'mass' attribute (for the empty mass) and the 'loading' parameter, if "
 "needed."
 msgstr ""
+"Il tipo di veicolo contiene il parametro 'vehicleMass' obsoleto. invece "
+"utilizza l'attributo 'mass' per indicare la massa vuota e il parametro "
+"loading' se necessario."
 
 #: src/microsim/MSVehicleType.cpp:337
 msgid ""
 "Value of 'emergencyDecel' (%) should be higher than 'decel' (%) for vType "
 "'%'."
 msgstr ""
+"Il valore di 'emergencyDecel' (%) dovrebbe essere maggiore di 'decel' (%) "
+"per il tipo di veicolo '%'."
 
 #: src/microsim/MSVehicleType.cpp:340
 msgid ""
 "Value of 'emergencyDecel' (%) is lower than 'apparentDecel' (%) for vType "
 "'%' may cause collisions."
 msgstr ""
+"Il valore di 'emergencyDecel' (%) è inferiore a 'apparentDecel' (%) per il "
+"tipo di veicolo '%' che può causare collisioni."
 
 #: src/microsim/MSVehicleType.cpp:462
 #, c-format
@@ -3399,7 +3413,7 @@ msgstr ""
 
 #: src/microsim/cfmodels/MSCFModel_Rail.cpp:86
 msgid "Unknown train type: %. Exiting!"
-msgstr ""
+msgstr "Tipo di treno sconosciuto: %. Uscita!"
 
 #: src/microsim/cfmodels/MSCFModel_Rail.cpp:114
 msgid ""
@@ -4030,50 +4044,56 @@ msgstr ""
 #: src/microsim/devices/MSDevice_SSM.cpp:4039
 #, c-format
 msgid "Invalid value '%' for vehicle parameter 'ssm.range'."
-msgstr ""
+msgstr "Valore invalido '%' del parametro di veicolo 'ssm.range'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4045
 #, c-format
 msgid "Invalid value '%' for vType parameter 'ssm.range'."
-msgstr ""
+msgstr "Valore invalido del parametro di tipo di veicolo 'ssm.range'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4050
 msgid ""
 "Vehicle '%' does not supply vehicle parameter 'device.ssm.range'. Using "
 "default of '%'."
 msgstr ""
+"Il veicolo '%' non definisce il parametro 'device.ssm.range', quindi viene "
+"usato il valore standard '%'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4066
 #, c-format
 msgid "Invalid value '%' for vehicle parameter 'ssm.mdrac.prt'."
-msgstr ""
+msgstr "Valore invalido '%' del parametro di veicolo 'ssm.mdrac.prt'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4072
 #, c-format
 msgid "Invalid value '%' for vType parameter 'ssm.mdrac.prt'."
-msgstr ""
+msgstr "Valore invalido del parametro di tipo di veicolo 'ssm.mdrac.prt'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4077
 msgid ""
 "Vehicle '%' does not supply vehicle parameter 'device.ssm.mdrac.prt'. Using "
 "default of '%'."
 msgstr ""
+"Il veicolo '%' non definisce il parametro 'device.ssm.mdrac.prt', quindi "
+"viene usato il valore standard '%'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4095
 #, c-format
 msgid "Invalid value '%' for vehicle parameter 'ssm.extratime'."
-msgstr ""
+msgstr "Valore invalido del parametro di veicolo 'ssm.extratime'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4101
 #, c-format
 msgid "Invalid value '%' for vType parameter 'ssm.extratime'."
-msgstr ""
+msgstr "Valore invalido del parametro di tipo di veicolo 'ssm.extratime'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4106
 msgid ""
 "Vehicle '%' does not supply vehicle parameter 'device.ssm.extratime'. Using "
 "default of '%'."
 msgstr ""
+"Il veicolo '%' non definisce il parametro 'device.ssm.extratime', quindi "
+"viene usato il valore standard '%'."
 
 #: src/microsim/devices/MSDevice_SSM.cpp:4112
 #, c-format
@@ -6585,11 +6605,11 @@ msgstr "Calcolo delle priorità"
 
 #: src/netbuild/NBNetBuilder.cpp:507
 msgid "Computing approached edges"
-msgstr ""
+msgstr "Calcolo di archi entranti"
 
 #: src/netbuild/NBNetBuilder.cpp:512
 msgid "Guessing and setting roundabouts"
-msgstr ""
+msgstr "Indovinare e impostare le rotatorie"
 
 #: src/netbuild/NBNetBuilder.cpp:515
 msgid " Guessed % roundabout(s)."
@@ -6597,15 +6617,15 @@ msgstr " Indovinate % rotatorie."
 
 #: src/netbuild/NBNetBuilder.cpp:521
 msgid "Computing approaching lanes"
-msgstr ""
+msgstr "Calcolo delle corsie entranti"
 
 #: src/netbuild/NBNetBuilder.cpp:525
 msgid "Dividing of lanes on approached lanes"
-msgstr ""
+msgstr "Suddivisione di corsie su corsie entranti"
 
 #: src/netbuild/NBNetBuilder.cpp:531
 msgid "Guessing Network fringe"
-msgstr ""
+msgstr "Indovinare il bordo della rete"
 
 #: src/netbuild/NBNetBuilder.cpp:534
 #, c-format
@@ -6614,15 +6634,15 @@ msgstr " Indovinati % nodi di bordo."
 
 #: src/netbuild/NBNetBuilder.cpp:539
 msgid "Processing turnarounds"
-msgstr ""
+msgstr "Processo delle inversioni a u"
 
 #: src/netbuild/NBNetBuilder.cpp:557
 msgid "Rechecking of lane endings"
-msgstr ""
+msgstr "Verifica ulteriore dei finali di corsie"
 
 #: src/netbuild/NBNetBuilder.cpp:579
 msgid "Joining traffic light nodes"
-msgstr ""
+msgstr "Combinazione di nodi con semafori"
 
 #: src/netbuild/NBNetBuilder.cpp:586
 msgid "Computing traffic light control information"
@@ -6862,19 +6882,20 @@ msgstr ""
 
 #: src/netbuild/NBNodeCont.cpp:2293
 msgid "Could not build joined tls '%'."
-msgstr ""
+msgstr "Il semaforo combinato '%' non poteva essere costruito."
 
 #: src/netbuild/NBNodeCont.cpp:2338
 msgid "Could not build guessed, joined tls."
-msgstr ""
+msgstr "Una combinazione indovinata di semafori non poteva essere costruito."
 
 #: src/netbuild/NBNodeCont.cpp:2461
 msgid "Could not build a joined tls."
-msgstr ""
+msgstr "Un semaforo combinato non poteva essere costruito."
 
 #: src/netbuild/NBNodeCont.cpp:2478
 msgid "Building a tl-logic for junction '%' twice is not possible."
 msgstr ""
+"Non è possibile creare una logica di semaforo due volte per l'incrocio '%'."
 
 #: src/netbuild/NBNodeCont.cpp:2560 src/netbuild/NBNodeCont.cpp:2652
 msgid "-----------------------------------------------------"
@@ -6882,15 +6903,15 @@ msgstr ""
 
 #: src/netbuild/NBNodeCont.cpp:2561
 msgid "Summary:"
-msgstr ""
+msgstr "Riassunto:"
 
 #: src/netbuild/NBNodeCont.cpp:2619
 msgid " Node type statistics:"
-msgstr ""
+msgstr " Statistiche di tipi di nodi:"
 
 #: src/netbuild/NBNodeCont.cpp:2648
 msgid " Network boundaries:"
-msgstr ""
+msgstr " Limiti della rete:"
 
 #: src/netbuild/NBNodeCont.cpp:2681
 msgid "Attempt to rename node using existing id '%'"
@@ -7575,30 +7596,33 @@ msgstr "La lunghezza standard di una fermata ferroviaria in FLOAT m"
 
 #: src/netimport/NIFrame.cpp:222
 msgid "Specify custom rules for importing railway signals"
-msgstr ""
+msgstr "Specifica regole personalizzate per importare segnali ferroviari"
 
 #: src/netimport/NIFrame.cpp:226
 msgid "Whether additional attributes shall be imported"
-msgstr ""
+msgstr "Se si devono importare attributi addizionali"
 
 #: src/netimport/NIFrame.cpp:230
 msgid ""
 "List of additional attributes that shall be imported from OSM via osm.all-"
 "attributes (set 'all' to import all)"
 msgstr ""
+"Elenco di attributi addizionali che devono essere importati da OSM "
+"attraverso osm.all-attributes (imposta a 'all' per importare tutti gli "
+"attributi)"
 
 #: src/netimport/NIFrame.cpp:233
 msgid ""
 "The speed limit to be set when there is no actual speed limit in reality"
-msgstr ""
+msgstr "Il limite di velocità da impostare laddove in realtà non ce n'è uno"
 
 #: src/netimport/NIFrame.cpp:237
 msgid "The edge lengths given in the MATSIM-file will be kept"
-msgstr ""
+msgstr "Le lunghezze degli archi verranno mantenute come date nel file MATSIM"
 
 #: src/netimport/NIFrame.cpp:240
 msgid "The lane number will be computed from the capacity"
-msgstr ""
+msgstr "Il numero di corsie verrà derivato dalla capacità"
 
 #: src/netimport/NIFrame.cpp:246
 msgid "Read edge ids from column STR"
@@ -7791,23 +7815,23 @@ msgstr ""
 #: src/netimport/NIImporter_ArcView.cpp:138
 #: src/polyconvert/PCLoaderArcView.cpp:139
 msgid "Could not open shape description '%'."
-msgstr ""
+msgstr "Non ho potuto aprire la descrizione della forma '%'."
 
 #: src/netimport/NIImporter_ArcView.cpp:187
 msgid "Needed field '%' (street-id) is missing."
-msgstr ""
+msgstr "Manca il campo '%' (street-id)."
 
 #: src/netimport/NIImporter_ArcView.cpp:198
 msgid "Needed field '%' (from node id) is missing."
-msgstr ""
+msgstr "Manca il campo '%' (codice identificativo del nodo di origine)."
 
 #: src/netimport/NIImporter_ArcView.cpp:202
 msgid "Needed field '%' (to node id) is missing."
-msgstr ""
+msgstr "Manca il campo '%' (codice identificativo del nodo di destinazione)."
 
 #: src/netimport/NIImporter_ArcView.cpp:218
 msgid "Unknown type '%' for edge '%'"
-msgstr ""
+msgstr "Tipo sconosciuto '%' dell'arco '%'"
 
 #: src/netimport/NIImporter_ArcView.cpp:233
 #, c-format
@@ -7843,21 +7867,21 @@ msgstr ""
 #: src/netimport/NIImporter_ArcView.cpp:304
 #, c-format
 msgid "Node '%' could not be added"
-msgstr ""
+msgstr "Il nodo '%' non poteva essere aggiunto"
 
 #: src/netimport/NIImporter_ArcView.cpp:312
 #, c-format
 msgid "Edge '%' connects identical nodes, skipping."
-msgstr ""
+msgstr "L'arco '%' collega nodi identifici e perciò va omesso."
 
 #: src/netimport/NIImporter_ArcView.cpp:329
 #, c-format
 msgid "Edge '%' is not unique."
-msgstr ""
+msgstr "L'arco '%' non è unico."
 
 #: src/netimport/NIImporter_ArcView.cpp:338
 msgid "Edge '%' is not unique. Renaming subsequent edge to '%'."
-msgstr ""
+msgstr "L'arco '%' non è unico. Va ribattezzato in '%'."
 
 #: src/netimport/NIImporter_ArcView.cpp:357
 msgid "Could not create edge '%'. An edge with the same id already exists."
@@ -7917,19 +7941,19 @@ msgstr "Caricamento delle restrizioni temporali"
 
 #: src/netimport/NIImporter_DlrNavteq.cpp:210
 msgid "Non-numerical value for intermediate status in node %."
-msgstr ""
+msgstr "Valore non numerico del stato intermedio nel nodo %."
 
 #: src/netimport/NIImporter_DlrNavteq.cpp:215
 msgid "Non-numerical value for number of geometries in node %."
-msgstr ""
+msgstr "Valore non numerico del numero di geometrie nel nodo %."
 
 #: src/netimport/NIImporter_DlrNavteq.cpp:222
 msgid "Non-numerical value for x-position in node %."
-msgstr ""
+msgstr "Valore non numerico per la coordinata x nel nodo %."
 
 #: src/netimport/NIImporter_DlrNavteq.cpp:226
 msgid "Non-numerical value for y-position in node %."
-msgstr ""
+msgstr "Valore non numerico per la coordinata y nel nodo %."
 
 #: src/netimport/NIImporter_DlrNavteq.cpp:230
 #: src/netimport/NIImporter_VISUM.cpp:321
@@ -8972,14 +8996,15 @@ msgstr "Il passaggio pedonale del nodo controllato '%' deve essere prioritario"
 #: src/netimport/NIXMLConnectionsHandler.cpp:426
 msgid "Unable to project shape for crossing at node '%'."
 msgstr ""
+"La forma del passaggio pedonale nel nodo '%' non poteva essere proiettata."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:439
 msgid "Crossing with edges '%' already exists at node '%'."
-msgstr ""
+msgstr "Il passaggio pedonale attraverso gli archi '%' al nodo '%' esiste già."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:472
 msgid "No edges specified for walkingArea at node '%'."
-msgstr ""
+msgstr "Non sono state specificati archi per l'area pedonale nel nodo '%'."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:478
 #, c-format
@@ -8988,11 +9013,13 @@ msgstr "L'arco '%' per l'area pedonale nel nodo '%' è sconosciuta."
 
 #: src/netimport/NIXMLConnectionsHandler.cpp:504
 msgid "Unable to project shape for walkingArea at node '%'."
-msgstr ""
+msgstr "La forma dell'area pedonale nel nodo '%' non poteva essere proiettata."
 
 #: src/netimport/NIXMLEdgesHandler.cpp:222
 msgid "Duplicate edge id occurred ('%'); assuming overwriting is wished."
 msgstr ""
+"Si è prodotto un codice identificativo di arco raddoppiato ('%'); si assume "
+"che è desiderato sovrascriverlo."
 
 #: src/netimport/NIXMLEdgesHandler.cpp:227
 #, c-format
@@ -9010,7 +9037,7 @@ msgstr ""
 
 #: src/netimport/NIXMLEdgesHandler.cpp:403
 msgid "Lane index is larger than number of lanes (edge '%')."
-msgstr ""
+msgstr "L'indice di corsie è maggiore del numero di corsie (arco '%')."
 
 #: src/netimport/NIXMLEdgesHandler.cpp:447
 msgid "Unable to project coordinates for lane '%'."
@@ -9047,16 +9074,16 @@ msgstr ""
 #: src/netimport/NIXMLEdgesHandler.cpp:674
 #, c-format
 msgid "Duplicate edge '%' occurred."
-msgstr ""
+msgstr "Si è prodotto un'arco '%' raddoppiato."
 
 #: src/netimport/NIXMLEdgesHandler.cpp:683
 msgid "An important information is missing in edge '%'."
-msgstr ""
+msgstr "Manca un'informazione importante nell'arco '%'."
 
 #: src/netimport/NIXMLEdgesHandler.cpp:705
 #, c-format
 msgid "Unknown edge '%' in roundabout."
-msgstr ""
+msgstr "Arco '%' sconosciuto in una rotatoria."
 
 #: src/netimport/NIXMLNodesHandler.cpp:151
 msgid "Missing position (at node ID='%')."
@@ -9984,12 +10011,16 @@ msgid ""
 "Cannot find different source and sink edge for origin '%' and destination "
 "'%'."
 msgstr ""
+"Non si trovano archi di sorgente e di scarico differenti per l'origine '%' e "
+"la destinazione '%'."
 
 #: src/od/ODMatrix.cpp:372 /src/od/ODMatrix.cpp:392 src/od/ODMatrix.cpp:418
 msgid ""
 "Flow density of % vehicles per second, cannot be represented with a simple "
 "probability. Falling back to even spacing."
 msgstr ""
+"La densità di flusso di % veicoli al secondo non può essere rappresentata da "
+"una semplice probabilità. Invece verrà usato la distanza uniforme."
 
 #: src/od/ODMatrix.cpp:442
 msgid "End of file while reading %."
@@ -10001,28 +10032,28 @@ msgstr ""
 
 #: src/od/ODMatrix.cpp:483
 msgid "Broken factor: '%'."
-msgstr ""
+msgstr "Fattore invalido: '%'."
 
 #: src/od/ODMatrix.cpp:517
 #, c-format
 msgid "Missing line with % district names."
-msgstr ""
+msgstr "Manca una linea con % nomi di distretti."
 
 #: src/od/ODMatrix.cpp:527
 msgid "Missing line for district %."
-msgstr ""
+msgstr "Manca la linea del distretto %."
 
 #: src/od/ODMatrix.cpp:541
 msgid "More entries than districts found."
-msgstr ""
+msgstr "Sono stati trovati più voci che distretti."
 
 #: src/od/ODMatrix.cpp:546 /src/od/ODMatrix.cpp:594
 msgid "Not numeric vehicle number in line '%'."
-msgstr ""
+msgstr "Numero di veicolo invalido in linea '%'."
 
 #: src/od/ODMatrix.cpp:592
 msgid "Missing at least one information in line '%'."
-msgstr ""
+msgstr "Manca almeno una informazione in linea '%'."
 
 #: src/od/ODMatrix.cpp:655 src/utils/options/OptionsIO.cpp:154
 msgid "Could not open '%'."
@@ -10049,36 +10080,39 @@ msgstr ""
 
 #: src/od/ODMatrix.cpp:749
 msgid "Broken time line definition: missing a value in '%'."
-msgstr ""
+msgstr "Definizione di sequenza temporale invalida: manca un valore in '%'."
 
 #: src/osgview/GUIOSGBuilder.cpp:471 src/utils/options/OptionsIO.cpp:168
 msgid "Could not load '%'."
-msgstr ""
+msgstr "Non ho potuto caricare '%'."
 
 #: src/osgview/GUIOSGBuilder.cpp:491
 msgid "Loaded decal '%' with bounding box % %."
 msgstr ""
+"L'immagine di sfondo '%' con riquadro di delimitazione % % è stata caricata."
 
 #: src/osgview/GUIOSGBuilder.cpp:597
 msgid "Could not load '%'. The model is replaced by a cone shape."
 msgstr ""
+"Non ho potuto caricare '%'. Il modello verrà sostituito con una forma di "
+"cono."
 
 #: src/osgview/GUIOSGManipulator.cpp:257
 #, c-format
 msgid "Currently in % camera mode. Press [F] to switch."
-msgstr ""
+msgstr "Attualmente in modo camera %. Premi [F] per cambiarlo."
 
 #: src/osgview/GUIOSGView.cpp:167
 msgid "Could not load traffic light files."
-msgstr ""
+msgstr "Non ho potuto caricare dei file di semafori."
 
 #: src/osgview/GUIOSGView.cpp:442
 msgid "Invalid link index in '%'."
-msgstr ""
+msgstr "Indice di collegamento invalido in '%'."
 
 #: src/osgview/GUIOSGView.cpp:444
 msgid "Unknown traffic light in '%'."
-msgstr ""
+msgstr "Semaforo sconosciuto in '%'."
 
 #: src/osgview/GUIOSGView.cpp:980
 msgid "(No projection defined)"
@@ -10097,7 +10131,7 @@ msgstr "Incapace di eseguire la proiezione del poligono '%'."
 
 #: src/polyconvert/PCLoaderArcView.cpp:184
 msgid "Missing id under '%'"
-msgstr ""
+msgstr "Manca il codice identificativo in '%'"
 
 #: src/polyconvert/PCLoaderArcView.cpp:234
 #: src/polyconvert/PCLoaderArcView.cpp:267
@@ -10872,7 +10906,7 @@ msgstr ""
 #: src/tools/emissionsDrivingCycle_main.cpp:184
 #, c-format
 msgid "Unknown attribute '%' to write in output."
-msgstr ""
+msgstr "Attributo sconosciuto '%' da scrivere in uscita."
 
 #: src/tools/emissionsDrivingCycle_main.cpp:213
 msgid ""
@@ -10881,24 +10915,24 @@ msgstr ""
 
 #: src/tools/emissionsDrivingCycle_main.cpp:225
 msgid "Vehicle type is not unique."
-msgstr ""
+msgstr "Il tipo di veicolo non è unico."
 
 #: src/tools/emissionsDrivingCycle_main.cpp:229
 #, c-format
 msgid "Vehicle type '%' is not defined."
-msgstr ""
+msgstr "Il tipo di veicolo '%' non è stato definito."
 
 #: src/tools/emissionsDrivingCycle_main.cpp:253
 msgid "Unreadable file '%'."
-msgstr ""
+msgstr "File illeggibile '%' ."
 
 #: src/tools/emissionsDrivingCycle_main.cpp:284
 msgid "Missing an entry in line '%'."
-msgstr ""
+msgstr "Manca una voce in linea '%'."
 
 #: src/tools/emissionsDrivingCycle_main.cpp:286
 msgid "Not numeric entry in line '%'."
-msgstr ""
+msgstr "Voce non numerica in linea '%'."
 
 #: src/tools/emissionsMap_main.cpp:54
 msgid "Writing map of '%' into '%'."
@@ -10949,15 +10983,15 @@ msgstr ""
 
 #: src/tools/emissionsMap_main.cpp:107
 msgid "Defines the minimum slope boundary of the map to generate (in deg)."
-msgstr ""
+msgstr "Definisce la pendenza minima della mappa da generare (in gradi)."
 
 #: src/tools/emissionsMap_main.cpp:109
 msgid "Defines the maximum slope boundary of the map to generate (in deg)."
-msgstr ""
+msgstr "Definisce la pendenza massima della mappa da generare (in gradi)."
 
 #: src/tools/emissionsMap_main.cpp:111
 msgid "Defines the slope step size (in deg)."
-msgstr ""
+msgstr "Definisce la lunghezza del passo di pendenza (in gradi)."
 
 #: src/tools/emissionsMap_main.cpp:116
 msgid ""
@@ -11501,11 +11535,11 @@ msgstr ""
 
 #: src/utils/handlers/DataHandler.cpp:111
 msgid "Data elements cannot load attributes as params"
-msgstr ""
+msgstr "Gli elementi di dati non possono caricare attributi come parametri"
 
 #: src/utils/handlers/MeanDataHandler.cpp:54
 msgid "MeanData elements cannot load attributes as params"
-msgstr ""
+msgstr "Gli elementi MeanData non possono caricare attributi come parametri"
 
 #: src/utils/handlers/RouteHandler.cpp:410
 msgid ""
@@ -11588,7 +11622,7 @@ msgstr ""
 
 #: src/utils/handlers/TemplateHandler.cpp:67
 msgid "Could not load template '%'."
-msgstr ""
+msgstr "Non ho potuto caricare il modello '%'."
 
 #: src/utils/iodevices/OutputDevice.cpp:88
 msgid "No port number given."
@@ -11596,42 +11630,46 @@ msgstr "Non è stato indicato il numero di porta."
 
 #: src/utils/iodevices/OutputDevice.cpp:163
 msgid "Error on closing output devices."
-msgstr ""
+msgstr "Errore nel chiudere gli dispositivi di uscita."
 
 #: src/utils/iodevices/OutputDevice_File.cpp:46
 msgid "Could not redirect to NUL device (%)."
-msgstr ""
+msgstr "Non è stato possibile dirottare l'uscita verso il dispositivo NUL (%)."
 
 #: src/utils/options/Option.cpp:352
 #, c-format
 msgid "'%' is not a valid float."
-msgstr ""
+msgstr "'%' non è un numero in virgola mobile valido."
 
 #: src/utils/options/Option.cpp:386
 #, c-format
 msgid "'%' is not a valid bool."
-msgstr ""
+msgstr "'%' non è un booleano valido."
 
 #: src/utils/options/Option.cpp:446
 msgid ""
 "Please note that using ';' as list separator is deprecated and not accepted "
 "anymore."
 msgstr ""
+"Nota che l'uso di ';' come separatore tra entrate di elenchi è obsoleto e "
+"non viene più accettato."
 
 #: src/utils/options/Option.cpp:456
 #, c-format
 msgid "'%' is not a valid integer vector."
-msgstr ""
+msgstr "'%' non è un vettore di numeri interi valido."
 
 #: src/utils/options/OptionsCont.cpp:66
 msgid ""
 "Copyright (C) 2001-2024 German Aerospace Center (DLR) and others; https://"
 "sumo.dlr.de"
 msgstr ""
+"Copyright (C) 2001-2024 Deutsches Zentrum für Luft- und Raumfahrt (DLR) e "
+"altri; https://sumo.dlr.de"
 
 #: src/utils/options/OptionsCont.cpp:152
 msgid "Internal request for unknown option '%'!"
-msgstr ""
+msgstr "Richiesta interna dell'opzione sconosciuta '%'!"
 
 #: src/utils/options/OptionsCont.cpp:175
 #, c-format
